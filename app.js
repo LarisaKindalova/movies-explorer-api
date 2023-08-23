@@ -11,7 +11,7 @@ const { PORT, MONGO_DB, LIMITER } = require('./utils/config');
 
 const errorResponse = require('./middlewares/errorResponse');
 
-// const router = require('./routes');
+const router = require('./routes');
 
 const app = express();
 
@@ -21,7 +21,7 @@ app.use(cookieParser());
 
 app.use(LIMITER);
 app.use(helmet());
-// app.use(router);
+app.use(router);
 
 mongoose.connect(MONGO_DB)
   .then(() => { console.log('БД подключена'); })

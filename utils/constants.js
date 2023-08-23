@@ -1,4 +1,3 @@
-// const OK = 200;
 const CREATE = 201;
 const BAD_REQUEST = 400;
 const UNAUTHORIZED = 401;
@@ -13,6 +12,13 @@ const MAX_LENGTH_WORD = 30;
 const MESSAGE_ERROR_EMAIL = 'Некорректный адрес почты';
 const MESSAGE_ERROR_AUTH = 'Неправильные почта или пароль';
 const MESSAGE_ERROR_URL = 'Не верный адрес';
+const MESSAGE_CONFLICT_ERROR = 'Пользователь с такой почтой уже существует';
+const MESSAGE_ERROR_BAD_REQUEST = 'Переданны некорретные даные';
+const MESSAGE_ERROR_NOT_FOUND = 'Данные не найдены';
+const MESSAGE_SERVER_ERROR = 'На сервере произошла ошибка';
+const MESSAGE_UNATHORIZED = 'Пользователь не авторизирован';
+
+const SALT_HASH = 10;
 
 module.exports = {
   CREATE,
@@ -27,4 +33,10 @@ module.exports = {
   MESSAGE_ERROR_EMAIL,
   MESSAGE_ERROR_AUTH,
   MESSAGE_ERROR_URL,
+  MESSAGE_CONFLICT_ERROR,
+  MESSAGE_ERROR_BAD_REQUEST,
+  MESSAGE_ERROR_NOT_FOUND,
+  MESSAGE_SERVER_ERROR,
+  MESSAGE_UNATHORIZED,
+  SALT_HASH,
 };

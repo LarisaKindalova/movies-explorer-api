@@ -7,6 +7,12 @@ const {
 } = require('../utils/config');
 
 const userSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    minlength: MIN_LENGTH_WORD,
+    maxlength: MAX_LENGTH_WORD,
+    default: 'пользователь',
+  },
   email: {
     type: String,
     validate: {
@@ -20,12 +26,6 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
     select: false,
-  },
-  name: {
-    type: String,
-    minlength: MIN_LENGTH_WORD,
-    maxlength: MAX_LENGTH_WORD,
-    default: 'пользователь',
   },
 }, { versionKey: false });
 
@@ -44,7 +44,7 @@ userSchema.statics.findUserByCredentials = function (email, password) {
         });
     });
 };
-// метод схемы удаление паролея из ответа
+// метод схемы удаление пароля из ответа
 userSchema.methods.toJSON = function () {
   const user = this.toObject();
   delete user.password;

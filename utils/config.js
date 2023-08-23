@@ -3,9 +3,11 @@ const rateLimit = require('express-rate-limit');
 const {
   PORT = 3000,
   MONGO_DB = 'mongodb://127.0.0.1:27017/bitfilmsdb',
-  JWT_SECRET = 'jwt-sectret',
+  JWT_SECRET,
   NODE_ENV,
 } = process.env;
+
+const JwtSecret = NODE_ENV === 'production' ? JWT_SECRET : 'jwt-secret';
 
 const LIMITER = rateLimit({ // Для защиты от DoS-атак
   windowMs: 15 * 60 * 1000, // 15 minutes
@@ -15,5 +17,5 @@ const LIMITER = rateLimit({ // Для защиты от DoS-атак
 });
 
 module.exports = {
-  PORT, MONGO_DB, JWT_SECRET, NODE_ENV, LIMITER,
+  PORT, MONGO_DB, JWT_SECRET, NODE_ENV, LIMITER, JwtSecret,
 };
