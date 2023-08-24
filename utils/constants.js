@@ -13,11 +13,11 @@ const MESSAGE_ERROR_EMAIL = 'Некорректный адрес почты';
 const MESSAGE_ERROR_AUTH = 'Неправильные почта или пароль';
 const MESSAGE_ERROR_URL = 'Не верный адрес';
 const MESSAGE_CONFLICT_ERROR = 'Пользователь с такой почтой уже существует';
-const MESSAGE_ERROR_BAD_REQUEST = 'Переданны некорретные даные';
+const MESSAGE_ERROR_BAD_REQUEST = 'При создании были переданны некорретные даные';
 const MESSAGE_ERROR_NOT_FOUND = 'Данные не найдены';
 const MESSAGE_SERVER_ERROR = 'На сервере произошла ошибка';
 const MESSAGE_UNATHORIZED = 'Пользователь не авторизирован';
-
+const MESSAGE_ERROR_FORBIDDEN = 'Не возможно удалить чужой фильм';
 const SALT_HASH = 10;
 
 module.exports = {
@@ -38,5 +38,6 @@ module.exports = {
   MESSAGE_ERROR_NOT_FOUND,
   MESSAGE_SERVER_ERROR,
   MESSAGE_UNATHORIZED,
+  MESSAGE_ERROR_FORBIDDEN,
   SALT_HASH,
 };

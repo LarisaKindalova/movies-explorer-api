@@ -33,8 +33,6 @@ module.exports.login = (req, res, next) => {
   User.findUserByCredentials(email, password)
     .then((user) => {
       const token = jwt.sign({ _id: user._id }, JwtSecret);
-      console.log('userID', user._id);
-      console.log(token);
       // прикрепляем к cookie
       res.cookie('jwt', token, {
         maxAge: '360000', // 7 дней
@@ -46,7 +44,6 @@ module.exports.login = (req, res, next) => {
 };
 
 module.exports.getCurrentUser = (req, res, next) => {
-  console.log('req.user._id: ', req.user._id);
   User.findById(req.user._id)
     .orFail(new NotFound(MESSAGE_ERROR_NOT_FOUND))
     .then((user) => res.send(user))
