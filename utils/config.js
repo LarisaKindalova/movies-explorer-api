@@ -1,7 +1,7 @@
 const rateLimit = require('express-rate-limit');
 
 const {
-  PORT = 3000,
+  PORT = 4000,
   MONGO_DB = 'mongodb://127.0.0.1:27017/bitfilmsdb',
   JWT_SECRET,
   NODE_ENV,

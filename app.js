@@ -9,6 +9,7 @@ const helmet = require('helmet'); // https://expressjs.com/ru/advanced/best-prac
 
 const { PORT, MONGO_DB, LIMITER } = require('./utils/config');
 
+const { requestLogger, errorLogger } = require('./middlewares/logger');
 const errorResponse = require('./middlewares/errorResponse');
 
 const router = require('./routes');
@@ -21,13 +22,16 @@ app.use(cookieParser());
 
 app.use(LIMITER);
 app.use(helmet());
+app.use(requestLogger); // подклчаем логгер запросов
+
 app.use(router);
 
 mongoose.connect(MONGO_DB)
   .then(() => { console.log('БД подключена'); })
   .catch(() => { console.log('Не удалось подключится к БД'); });
 
-app.use(errors());
+app.use(errorLogger); // полключаем логгер ошибок
+app.use(errors()); // обработчик ошибок celebrate
 app.use(errorResponse); // Централизованная обработка ошибок
 
 app.listen(PORT, () => {
