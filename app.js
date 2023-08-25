@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const { errors } = require('celebrate');
+const cors = require('cors');
 
 const helmet = require('helmet'); // https://expressjs.com/ru/advanced/best-practice-security.html
 
@@ -15,6 +16,8 @@ const errorResponse = require('./middlewares/errorResponse');
 const router = require('./routes');
 
 const app = express();
+
+app.use(cors({ origin: ['http://localhost:4001', 'https://kind.movies.nomoredomainsicu.ru'], credentials: true }));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
