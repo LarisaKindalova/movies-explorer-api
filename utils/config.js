@@ -1,12 +1,9 @@
 const rateLimit = require('express-rate-limit');
 
-const {
-  PORT = 4000,
-  MONGO_DB = 'mongodb://127.0.0.1:27017/bitfilmsdb',
-  JWT_SECRET,
-  NODE_ENV,
-} = process.env;
+const { JWT_SECRET, NODE_ENV } = process.env;
 
+const PORT = 4000 || process.env.PORT;
+const MONGO_DB = 'mongodb://127.0.0.1:27017/bitfilmsdb' || process.env.MONGO_DB;
 const JwtSecret = NODE_ENV === 'production' ? JWT_SECRET : 'jwt-secret';
 
 const LIMITER = rateLimit({ // Для защиты от DoS-атак
