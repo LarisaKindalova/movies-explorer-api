@@ -4,14 +4,14 @@ const bcrypt = require('bcryptjs');
 const { Unauthorized } = require('../errors/unauthorized');
 const {
   MIN_LENGTH_WORD, MAX_LENGTH_WORD, MESSAGE_ERROR_EMAIL, MESSAGE_ERROR_AUTH,
-} = require('../utils/config');
+} = require('../utils/constants');
 
 const userSchema = new mongoose.Schema({
   name: {
     type: String,
     minlength: MIN_LENGTH_WORD,
     maxlength: MAX_LENGTH_WORD,
-    default: 'пользователь',
+    required: true,
   },
   email: {
     type: String,

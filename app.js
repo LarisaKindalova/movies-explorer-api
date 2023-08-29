@@ -23,9 +23,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
+app.use(requestLogger); // подклчаем логгер запросов
 app.use(LIMITER);
 app.use(helmet());
-app.use(requestLogger); // подклчаем логгер запросов
 
 app.use(router);
 
