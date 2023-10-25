@@ -2,6 +2,7 @@ const { celebrate, Joi } = require('celebrate');
 
 const regexUrl = /(?:https?):?(\/\/?)(w{3})?\.?\w+(-\w+)*\.[a-z0-9A_Z]+(\/[\w\-.~:/?#[\]@!$&'()*+,;=]*#?)?/;
 const regexImg = /(https?:\/\/.*\.(?:png|jpg|jpeg|gif|bmp))/;
+
 module.exports.validateCreateUser = celebrate({
   body: Joi.object().keys({
     email: Joi.string().required().email(),

@@ -17,7 +17,7 @@ const router = require('./routes');
 
 const app = express();
 
-app.use(cors({ origin: ['http://localhost:4001', 'https://kind.movies.nomoredomainsicu.ru'], credentials: true }));
+app.use(cors({ origin: ['http://localhost:3000', 'https://kind.movies.nomoredomainsicu.ru'], credentials: true }));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
