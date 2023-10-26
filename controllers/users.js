@@ -68,5 +68,8 @@ module.exports.updateUserInfo = (req, res, next) => {
 };
 
 module.exports.logOut = (req, res) => {
-  res.clearCookie('jwt', { sameSite: 'none' }).send({ message: 'Exit' });
+  res.clearCookie('jwt', {
+    sameSite: 'none',
+    secure: true,
+  }).send({ message: 'Exit' });
 };
