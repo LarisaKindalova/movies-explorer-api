@@ -1,9 +1,13 @@
-Адрес репозитория: https://github.com/LarisaKindalova/movies-explorer-api
 
-## Ссылки на проект
+# Сервесная часть дипломного проекта
+##Используемые технологии:
+* Node.js
+* express.js
+* MongoDB
+* Mongoose
 
-IP 158.160.63.119
-
-Frontend https://kind.movies.nomoredomainsicu.ru
-
-Backend https://api.kind.movies.nomoredomainsicu.ru
+## Директории
+`/routes` — папка с файлами роутера  
+`/controllers` — папка с файлами контроллеров пользователя и карточки   
+`/models` — папка с файлами описания схем пользователя и карточки  
+  
